@@ -2,7 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import Todoitems from "./Todoitems";
 
 const Todo = () => {
-  const [todoList, setTodoList] = useState(localStorage.getItem('todos')? JSON.parse(localStorage.getItem('todos')):[]);
+  const [todoList, setTodoList] = useState(
+    localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : []
+  );
   const inputRef = useRef();
   const addTask = () => {
     const inputText = inputRef.current.value.trim(); // .trim() remove the extra whitespace from start and end
@@ -18,21 +22,21 @@ const Todo = () => {
     inputRef.current.value = "";
   };
   const deleteTask = (id) => {
-    setTodoList((prev) => prev.filter((task) => task.id!== id));
+    setTodoList((prev) => prev.filter((task) => task.id !== id));
   };
-  const toggle = (task) => {
+  const toggle = (id) => {
     setTodoList((prev) =>
       prev.map((task) => {
-        if (task.id === task.id) {
-          return {...task, isComplate:!task.isComplate };
+        if (task.id === id) {
+          return { ...task, isComplate: !task.isComplate };
         }
         return task;
       })
     );
-  }
+  };
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todoList));
-  }, [todoList])
+    localStorage.setItem("todos", JSON.stringify(todoList));
+  }, [todoList]);
   return (
     <div className="bg-white place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">
       {/*-------------- title  -------------*/}
@@ -70,7 +74,7 @@ const Todo = () => {
                 id={list.id}
                 text={list.text}
                 isComplate={list.isComplate}
-                deleteTask= {deleteTask}
+                deleteTask={deleteTask}
                 toggle={toggle}
               />
             );

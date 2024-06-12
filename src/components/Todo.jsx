@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Todoitems from "./Todoitems";
 
 const Todo = () => {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(localStorage.getItem('todos')? JSON.parse(localStorage.getItem('todos')):[]);
   const inputRef = useRef();
   const addTask = () => {
     const inputText = inputRef.current.value.trim(); // .trim() remove the extra whitespace from start and end
@@ -31,7 +31,7 @@ const Todo = () => {
     );
   }
   useEffect(() => {
-
+    localStorage.setItem('todos', JSON.stringify(todoList));
   }, [todoList])
   return (
     <div className="bg-white place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">

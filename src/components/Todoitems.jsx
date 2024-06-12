@@ -7,8 +7,8 @@ const Todoitems = ({ text, id, isComplate, deleteTask , toggle}) => {
   return (
     <div className="flex items-center justify-between">
       <div onClick={() => toggle(id)} className="flex items-center gap-4 cursor-pointer">
-        <img src={isComplate ? tick : not_tick} className="w-8" alt="" />
-        <p>{text}</p>
+        <img src={isComplate ? tick : not_tick} className="w-6" alt="" />
+        <p className={`font-Rubik ${isComplate ? 'line-through': ''}`}>{text}</p>
       </div>
       <img
         src={delete_icon}

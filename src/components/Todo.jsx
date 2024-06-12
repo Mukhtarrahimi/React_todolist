@@ -17,6 +17,9 @@ const Todo = () => {
     setTodoList((prev) => [...prev, newTodo]);
     inputRef.current.value = "";
   };
+  const deleteTask = (id) => {
+    setTodoList((prev) => prev.filter((task) => task.id!== id));
+  };
   return (
     <div className="bg-white place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">
       {/*-------------- title  -------------*/}
@@ -54,6 +57,7 @@ const Todo = () => {
                 id={list.id}
                 text={list.text}
                 isComplate={list.isComplate}
+                deleteTask= {deleteTask}
               />
             );
           })}

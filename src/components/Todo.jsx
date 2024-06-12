@@ -1,4 +1,5 @@
 import React from "react";
+import Todoitems from "./Todoitems";
 
 const Todo = () => {
   return (
@@ -26,6 +27,10 @@ const Todo = () => {
           >
             ADD
           </label>
+        </div>
+        {/*-----------------  input box list  -----------*/}
+        <div className="mt-6 flex flex-col gap-4">
+          <Todoitems />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Todoitems from "./Todoitems";
 
 const Todo = () => {
@@ -20,6 +20,19 @@ const Todo = () => {
   const deleteTask = (id) => {
     setTodoList((prev) => prev.filter((task) => task.id!== id));
   };
+  const toggle = (task) => {
+    setTodoList((prev) =>
+      prev.map((task) => {
+        if (task.id === task.id) {
+          return {...task, isComplate:!task.isComplate };
+        }
+        return task;
+      })
+    );
+  }
+  useEffect(() => {
+
+  }, [todoList])
   return (
     <div className="bg-white place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">
       {/*-------------- title  -------------*/}
@@ -58,6 +71,7 @@ const Todo = () => {
                 text={list.text}
                 isComplate={list.isComplate}
                 deleteTask= {deleteTask}
+                toggle={toggle}
               />
             );
           })}

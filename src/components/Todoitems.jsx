@@ -3,11 +3,11 @@ import tick from "../assets/tick.png";
 import not_tick from "../assets/not_tick.png";
 import delete_icon from "../assets/delete.png";
 
-const Todoitems = ({ text, id, isComplate, deleteTask }) => {
+const Todoitems = ({ text, id, isComplate, deleteTask , toggle}) => {
   return (
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-4 cursor-pointer">
-        <img src={tick} className="w-8" alt="" />
+      <div onClick={() => toggle(id)} className="flex items-center gap-4 cursor-pointer">
+        <img src={isComplate ? tick : not_tick} className="w-8" alt="" />
         <p>{text}</p>
       </div>
       <img

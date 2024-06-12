@@ -38,7 +38,7 @@ const Todo = () => {
     localStorage.setItem("todos", JSON.stringify(todoList));
   }, [todoList]);
   return (
-    <div className="bg-white place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">
+    <div className="bg-white shadow-2xl place-self-center  w-11/12 max-w-md flex flex-col p-10 rounded-xl">
       {/*-------------- title  -------------*/}
       <div>
         <h1 className="text-center font-semibold text-blue-500 text-3xl font-Rubik">
@@ -46,7 +46,7 @@ const Todo = () => {
         </h1>
         {/*----------------- input box  -----------*/}
         <div
-          className="input bg-white border border-blue-400 flex gap-1 items-center justify-between w-full h-10 rounded-md p-1 mt-6 shadow-inner;
+          className="input bg-white border border-blue-400 flex gap-1 items-center justify-between w-full h-11 rounded-lg p-1 mt-6 shadow-inner shadow-2xl;
 
 "
         >
@@ -54,13 +54,13 @@ const Todo = () => {
             ref={inputRef}
             id="input"
             type="text"
-            className="h-full ps-1 text-sm w-full border focus:border-blue-200 rounded outline-none bg-transparent"
+            className="h-full ps-1 text-sm w-full border border-white focus:border-blue-200 rounded-md outline-none bg-transparent"
             placeholder="Add your task"
           />
           <label
             onClick={addTask}
             htmlFor="input"
-            className="bg-blue-400 cursor-pointer hover:bg-blue-500 duration-300 px-6 rounded-md h-full text-center text-white"
+            className="bg-blue-400 cursor-pointer flex items-center justify-center hover:bg-blue-500 duration-300 px-6 rounded-md h-full text-center text-white"
           >
             ADD
           </label>
